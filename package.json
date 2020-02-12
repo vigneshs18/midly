@@ -2,9 +2,10 @@
   "name": "midly",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "start": "node server.js",
+    "test": "jest --watchAll --verbose --coverage"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "winston-mongodb": "^3.0.0"
   },
   "devDependencies": {
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2"
   }
 }

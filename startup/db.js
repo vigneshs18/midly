@@ -1,7 +1,9 @@
 const winston = require('winston');
 const mongooose = require('mongoose');
+const config = require('config');
 
 module.exports = function(){
-    mongooose.connect('mongodb://localhost/midly', {useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true})
-        .then(() => winston.info('Connected to MongoDB...'));
+    const db = config.get('db');
+    mongooose.connect(db, {useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true})
+        .then(() => winston.info(`Connected to ${db}...`));
 }
