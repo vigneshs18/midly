@@ -3,14 +3,15 @@ const { User } = require('../../../models/user');
 const { Genre } = require('../../../models/genre');
 
 describe('auth middleware', () => {
+    let server;
     let token;
 
     beforeEach(() => {
         server = require('../../../app');
         token = new User().generateAuthToken();
     });
-    afterEach(async () => {
-        //server.close();
+    afterEach(async() => {
+        //await server.close();
         await Genre.deleteMany({});
     });
 
